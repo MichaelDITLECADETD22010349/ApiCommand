@@ -22,8 +22,7 @@ public class Command {
     private Double price;
     public Command() {}
 
-    public Command(Long id, Date deliveryDate, String deliveryAddress, Double price) {
-        this.id = id;
+    public Command(Date deliveryDate, String deliveryAddress, Double price) {
         this.deliveryDate = deliveryDate;
         this.deliveryAddress = deliveryAddress;
         this.price = price;
@@ -74,4 +73,9 @@ public class Command {
     @CollectionTable(name = "menus_in_command", joinColumns = @JoinColumn(name = "id_command"))
     @Column(name = "id_menu")
     private List<Long> menuIds = new ArrayList<>();
+
+    public List<Long> getMenuIds() {
+        return menuIds;
+    }
+
 }
